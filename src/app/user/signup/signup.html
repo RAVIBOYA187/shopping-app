@@ -1,0 +1,79 @@
+<div>
+
+
+
+    <h1>SignUp Form</h1>
+    <section>
+
+        <form [formGroup]="fullDetails" (ngSubmit)="handleSubmit()">
+
+            <label for="name">Name</label><br>
+            <input type="text" id="name" placeholder="Enter Full Name" formControlName="name">
+            @if(fullDetails.controls['name']?.hasError("required") && fullDetails.controls['name']?.touched){
+            <span class="errorMsg"> Name field is Mandatory </span>
+            }
+            <br><br>
+
+            <!--  -->
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" placeholder="example@gmail.com" formControlName="email">
+            @if (email?.touched && email?.hasError("required")) {
+            <span class="errorMsg"> Email field is Mandatory </span>
+            }
+
+            @if (email?.touched && email?.errors?.["email"]) {
+            <span class="errorMsg"> Email is not Valid </span>
+            }
+            <br><br>
+
+            <!--  -->
+
+            <label for="mobile">Mobile</label><br>
+            <input type="mobile" id="mobile" placeholder="000000000" formControlName="mobile">
+            @if (mobile?.touched && mobile?.errors?.["required"]) {
+            <span class="errorMsg"> Mobile field is Mandatory </span>
+            }
+            @if (mobile?.touched && mobile?.errors?.["pattern"]) {
+            <span class="errorMsg"> Mobile number is not Valid </span>
+            }
+            <br><br>
+
+            <!--  -->
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder="xxxxxx" formControlName="password">
+            @if (password?.touched && password?.errors?.["required"]) {
+            <span class="errorMsg"> password field is Mandatory </span>
+            }
+            @if (password?.touched && password?.errors?.["minlength"]) {
+            <span class="errorMsg"> password min 5 chars </span>
+            }
+            @if (password?.touched && password?.errors?.["maxlength"]) {
+            <span class="errorMsg"> password max 10 chars </span>
+            }
+
+            <br><br>
+
+            <!--  -->
+
+            <label for="gender">Gender</label><br>
+            <select id="gender" formControlName="gender">
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+            @if (gender?.touched && gender?.errors?.["required"]) {
+            <span class="errorMsg"> Gender field is Mandatory </span>
+            }
+
+            <br><br>
+
+            <button [disabled]="fullDetails.invalid">SignUp</button>
+
+            <button type="button" (click)="handleReset()">Reset</button>
+
+        </form>
+
+    </section>
+</div>

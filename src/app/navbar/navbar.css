@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+section {
+    width: 98vw;
+    height: 8vh;
+    background-color: #cd7c5a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 45vw;
+    margin: 10px;
+    border-radius: 10px;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+}
+
+a {
+    text-decoration: none;
+    font-size: 25px;
+}

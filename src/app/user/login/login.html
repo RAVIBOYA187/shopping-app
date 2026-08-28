@@ -1,0 +1,42 @@
+<div>
+
+
+
+    <h1> Login Form</h1>
+    <section [formGroup]="loginDetails" (ngSubmit)="handleSubmit()">
+
+        <form>
+
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" placeholder="example@gmail.com" formControlName="email">
+            @if (email?.touched && email?.hasError("required")) {
+            <span class="errorMsg"> Email field is Mandatory </span>
+            }
+
+            @if (email?.touched && email?.errors?.["email"]) {
+            <span class="errorMsg"> Email is not Valid </span>
+            }
+            <br><br>
+
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" placeholder="xxxxxx" formControlName="password">
+            @if (password?.touched && password?.errors?.["required"]) {
+            <span class="errorMsg"> password field is Mandatory </span>
+            }
+            @if (password?.touched && password?.errors?.["minlength"]) {
+            <span class="errorMsg"> password min 5 chars </span>
+            }
+            @if (password?.touched && password?.errors?.["maxlength"]) {
+            <span class="errorMsg"> password max 10 chars </span>
+            }
+            <br><br>
+
+            <button [disabled]="loginDetails.invalid">Login</button>
+            <button type="button" (click)="handleReset()">Reset</button>
+
+        </form>
+
+    </section>
+</div>

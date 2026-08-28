@@ -1,0 +1,57 @@
+<!-- <p>view-product works!</p> -->
+
+<!-- <button (click)="getProducts()">view Cart</button> -->
+<!-- 
+<section>
+    @for (item of cartList; track item.id) {
+    <aside>
+        <img [src]="item.image" [alt]="item.id">
+
+        <p> {{ item.title}}</p>
+        <p> $ {{ item.price }}</p>
+        <button>Buy Now</button>
+        <button class="removeBtn" (click)="removeFromCart(item)">Remove</button>
+    </aside>
+    }
+
+</section> -->
+
+<main>
+
+    <section>
+        @for (item of productsList(); track item.id) {
+        <aside>
+            <!-- <img [src]="item.image" [alt]="item.id" [routerLink]="['/showDetails' , item.id]"> -->
+            <img [src]="item.image" [alt]="item.id">
+
+            <!-- <p style="display: none;" {{ totalAmount()=totalAmount + item.price}}>hhhh</p> -->
+            <!-- <p>jjj</p> -->
+            <p> {{ item.title}}</p>
+            <p> {{ item.price | currency}} </p>
+            <!-- <button>Buy Now</button> -->
+            <p> Count : {{item.count}}</p>
+            <button (click)="increment(item)">+</button>
+            <button (click)="decrement(item)">-</button>
+
+            <!-- <button class="removeBtn" (click)="removeFromCart(item)">Remove</button> -->
+            <button class="removeBtn" (click)="removeCartItemFromLS(item)">Remove</button>
+
+        </aside>
+        }
+
+    </section>
+
+
+    <article>
+
+        <p>Total Products : {{totalProducts()}} </p>
+        <p>Total Amount : {{totalAmount() | number | currency}}</p>
+
+        <!-- <button class="clearCartBtn" (click)="clearCart()">Clear Cart</button> -->
+        <button class="clearCartBtn" (click)="clearCartfromLS()">Clear Cart</button>
+
+    </article>
+
+</main>
+
+<!-- <app-navbar></app-navbar> -->

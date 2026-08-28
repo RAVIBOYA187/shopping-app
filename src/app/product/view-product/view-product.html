@@ -1,0 +1,44 @@
+<!-- <p>view-product works!</p> -->
+
+<!-- <button (click)="getProducts()">view Products</button> -->
+<!-- @let products = productsList;
+{{products | json}} -->
+<section>
+    @for (item of productsArray(); track item.id) {
+    <!-- <aside (click)="singleProduct(item.id)"> -->
+    <!-- <aside routerLink="/showdetails/"{{item.id}}> -->
+    <aside>
+
+        <img [src]=" item.image" [alt]="item.id" [routerLink]="['/products/',item.id]">
+        <p> {{ item.title | titlecase}}</p>
+        <p> {{ item.price | currency}}</p>
+        <!-- <button (click)="addToCart(item)">Add To Cart</button> -->
+        <button (click)="addToCartInLS(item)">Add To Cart</button>
+
+
+
+    </aside>
+
+    }
+    @empty {
+    <h1>product list is empty... refresh or re-load to get</h1>
+    }
+</section>
+
+
+
+
+<!-- <section>
+    @for (item of productsArray(); track item.id) {
+    <aside>
+        <img [src]="item.image" [alt]="item.id">
+        <p> {{ item.title}}</p>
+        <p> $ {{ item.price }}</p>
+        <button (click)="addToCart(item)">Add To Cart</button>
+
+    </aside>
+    }
+    @empty {
+    <h1>product list is empty</h1>
+    }
+</section> -->

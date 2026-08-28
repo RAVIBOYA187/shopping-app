@@ -1,0 +1,86 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Essence Mascara Lash Princess",
+      "price": 12.99,
+      "category": "beauty",
+      "stock": 45,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+    },
+    {
+      "id": "2",
+      "title": "Eyeshadow Palette with Mirror",
+      "price": 24.99,
+      "category": "beauty",
+      "stock": 32,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+    },
+    {
+      "id": "3",
+      "title": "Powder Canister",
+      "price": 16.99,
+      "category": "beauty",
+      "stock": 28,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+    },
+    {
+      "id": "4",
+      "title": "Red Lipstick",
+      "price": 14.99,
+      "category": "beauty",
+      "stock": 56,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+    },
+    {
+      "id": "5",
+      "title": "Red Nail Polish",
+      "price": 9.99,
+      "category": "beauty",
+      "stock": 41,
+      "image": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+    },
+    {
+      "id": "6",
+      "title": "Calvin Klein CK One",
+      "price": 49.99,
+      "category": "fragrances",
+      "stock": 25,
+      "image": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp"
+    },
+    {
+      "id": "7",
+      "title": "Chanel Coco Noir Eau De",
+      "price": 129.99,
+      "category": "fragrances",
+      "stock": 18,
+      "image": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp"
+    },
+    {
+      "id": "8",
+      "title": "Dior J'adore Eau De Parfum",
+      "price": 89.99,
+      "category": "fragrances",
+      "stock": 34,
+      "image": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp"
+    },
+    {
+      "id": "9",
+      "title": "Dolce Shine Eau De Parfum",
+      "price": 69.99,
+      "category": "fragrances",
+      "stock": 22,
+      "image": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp"
+    },
+    {
+      "id": "10",
+      "title": "Gucci Bloom Eau De Parfum",
+      "price": 79.99,
+      "category": "fragrances",
+      "stock": 31,
+      "image": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp"
+    }
+  ],
+  "cart": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
