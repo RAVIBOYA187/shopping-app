@@ -1,4 +1,4 @@
-<h1>show details</h1>
+<h1>show Product details</h1>
 @if (productDetails(); as product) {
 
 <section>
@@ -6,7 +6,7 @@
         <img [src]="product.image" [alt]="product.title">
         <p>{{product.title | titlecase}}</p>
         <p>{{product.price | currency}}</p>
-        <button>view</button>
+        <!-- <button>view</button> -->
     </aside>
 </section>
 

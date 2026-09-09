@@ -22,7 +22,7 @@
         @for (item of productsList(); track item.id) {
         <aside>
             <!-- <img [src]="item.image" [alt]="item.id" [routerLink]="['/showDetails' , item.id]"> -->
-            <img [src]="item.image" [alt]="item.id">
+            <img [src]="item.image" [alt]="item.id" [routerLink]="['/products',item.id ]">
 
             <!-- <p style="display: none;" {{ totalAmount()=totalAmount + item.price}}>hhhh</p> -->
             <!-- <p>jjj</p> -->
@@ -30,11 +30,12 @@
             <p> {{ item.price | currency}} </p>
             <!-- <button>Buy Now</button> -->
             <p> Count : {{item.count}}</p>
-            <button (click)="increment(item)">+</button>
-            <button (click)="decrement(item)">-</button>
+            <button class="incrementBtn" (click)="increment(item)">+</button>
 
             <!-- <button class="removeBtn" (click)="removeFromCart(item)">Remove</button> -->
             <button class="removeBtn" (click)="removeCartItemFromLS(item)">Remove</button>
+            <button class="decrementBtn" (click)="decrement(item)">-</button>
+
 
         </aside>
         }
@@ -42,16 +43,33 @@
     </section>
 
 
+
+
+
     <article>
 
         <p>Total Products : {{totalProducts()}} </p>
         <p>Total Amount : {{totalAmount() | number | currency}}</p>
 
-        <!-- <button class="clearCartBtn" (click)="clearCart()">Clear Cart</button> -->
         <button class="clearCartBtn" (click)="clearCartfromLS()">Clear Cart</button>
 
     </article>
 
 </main>
 
-<!-- <app-navbar></app-navbar> -->
+
+
+
+
+
+
+<div>
+    @for (item of product$ | async; track item.id) {
+
+    <!-- <span>{{item.title}} </span>
+    <span>{{item.price}}</span>
+    <br> -->
+
+
+    }
+</div>

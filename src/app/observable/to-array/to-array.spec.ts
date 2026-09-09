@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Contact } from './contact';
+import { ToArray } from './to-array';
 
-describe('Contact', () => {
-  let component: Contact;
-  let fixture: ComponentFixture<Contact>;
+describe('ToArray', () => {
+  let component: ToArray;
+  let fixture: ComponentFixture<ToArray>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Contact],
+      imports: [ToArray],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Contact);
+    fixture = TestBed.createComponent(ToArray);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

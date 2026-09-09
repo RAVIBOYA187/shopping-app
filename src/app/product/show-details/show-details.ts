@@ -1,7 +1,7 @@
 import { CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, input, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Field, form } from '@angular/forms/signals';
 
 @Component({
@@ -14,6 +14,7 @@ export class ShowDetails implements OnInit {
 
   // productId = input.required<string>()
   route = inject(ActivatedRoute)
+  router = inject(Router)
   productDetails = signal<any>(null)
 
   http = inject(HttpClient)
@@ -38,8 +39,14 @@ export class ShowDetails implements OnInit {
 
   singleProduct() {
     let productId = this.route.snapshot.paramMap.get("productId")
+    if (!Number.isInteger(Number(productId)) || (Number(productId) < 1) || (Number(productId) > 10)) {
+
+      this.router.navigate(['/error'])
+
+      return
+    }
     // let id = this.route.snapshot.paramMap.get("id")
-    console.log("rrrrrrrrrrrr'", productId);
+    console.log("rrrrrrrrrrrr : ", productId);
 
     // let code = productId !== undefined ? productId : id;
 

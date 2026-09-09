@@ -10,12 +10,14 @@
     <aside>
 
         <img [src]=" item.image" [alt]="item.id" [routerLink]="['/products/',item.id]">
-        <p> {{ item.title | titlecase}}</p>
+        <p> {{ item.title | titlecase | slice:0:12}}</p>
         <p> {{ item.price | currency}}</p>
+        <!-- <p> {{ item.price | number:'1.1-2'}}</p> -->
+
+        <!-- <p> {{ item.price | percent}}</p> -->
+
         <!-- <button (click)="addToCart(item)">Add To Cart</button> -->
         <button (click)="addToCartInLS(item)">Add To Cart</button>
-
-
 
     </aside>
 

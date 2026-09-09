@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, LOCALE_ID, OnInit, signal } from '@angular/core';
 import { ApiService } from '../../service/api-service';
-import { CurrencyPipe, JsonPipe, TitleCasePipe } from '@angular/common';
+import { CurrencyPipe, DecimalPipe, JsonPipe, PercentPipe, SlicePipe, TitleCasePipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { json } from 'node:stream/consumers';
+import { CartService } from '../../service/cart-service';
 
 @Component({
-  imports: [CurrencyPipe, TitleCasePipe, RouterLink],
+  imports: [CurrencyPipe, TitleCasePipe, RouterLink, SlicePipe],
   selector: 'app-view-product',
   styleUrl: './view-product.css',
   templateUrl: './view-product.html',
@@ -19,18 +20,19 @@ export class ViewProduct implements OnInit {
   productsArray = signal<any[]>([])
 
   customService = inject(ApiService)
+  cartService = inject(CartService)
 
   // cartItems: any[] = [];
 
-  product = {
-    id: "",
-    title: "",
-    price: 0,
-    category: "",
-    stock: 0,
-    image: "",
-    count: 1
-  }
+  // product = {
+  //   id: "",
+  //   title: "",
+  //   price: 0,
+  //   category: "",
+  //   stock: 0,
+  //   image: "",
+  //   count: 1
+  // }
 
 
   getProducts() {
@@ -65,45 +67,48 @@ export class ViewProduct implements OnInit {
 
   }
 
-  cartItems: any[] = [];
+  // cartItems: any[] = [];
 
   addToCartInLS(item: any) {
 
-    const cart = localStorage.getItem('cart');
+    this.cartService.addToCart(item);
 
-    if (cart) {
-      this.cartItems = JSON.parse(cart) ?? [];
-    }
+    // const cart = localStorage.getItem('cart');
 
-    for (let i = 0; i < this.cartItems.length; i++) {
-      if (this.cartItems.at(i).id === item.id) {
+    //   if (cart) {
+    //     this.cartItems = JSON.parse(cart) ?? [];
+    //   }
 
-        let addAgain = confirm((item.title.split(" ")[0] + " " + item.title.split(" ")[1]).toUpperCase() + "  Already Added To Cart.. DO You want to add Again...")
+    //   for (let i = 0; i < this.cartItems.length; i++) {
+    //     if (this.cartItems.at(i).id === item.id) {
 
-        if (addAgain) {
-          this.cartItems.at(i).count++;
-          console.log("duplicate updated...");
+    //       let addAgain = confirm((item.title.split(" ")[0] + " " + item.title.split(" ")[1]).toUpperCase() + "  Already Added To Cart.. DO You want to Add Again...")
 
-          localStorage.setItem(
-            'cart',
-            JSON.stringify(this.cartItems)
-          );
+    //       if (addAgain) {
+    //         this.cartItems.at(i).count++;
+    //         console.log("duplicate updated...");
 
-        }
-        return
-      }
-    }
+    //         localStorage.setItem(
+    //           'cart',
+    //           JSON.stringify(this.cartItems)
+    //         );
 
-    this.cartItems.push({ ...this.product, ...item });
-    localStorage.setItem(
-      'cart',
-      JSON.stringify(this.cartItems)
-    );
+    //       }
+    //       return
+    //     }
+    //   }
 
-    alert((item.title.split(" ")[0] + " " + item.title.split(" ")[1]).toUpperCase() + "  Added to Cart..")
+    //   this.cartItems.push({ ...this.product, ...item });
+    //   localStorage.setItem(
+    //     'cart',
+    //     JSON.stringify(this.cartItems)
+    //   );
 
-    console.log('Cart:', this.cartItems);
+    //   alert((item.title.split(" ")[0] + " " + item.title.split(" ")[1]).toUpperCase() + "  Added to Cart..")
+
+    //   console.log('Cart:', this.cartItems);
   }
+
 
 
 

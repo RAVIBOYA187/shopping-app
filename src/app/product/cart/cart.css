@@ -9,7 +9,7 @@
 main {
     width: 90vw;
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around;
     gap: 10px;
     margin: 30px 0px;
     /* background-color: #681f1f; */
@@ -29,7 +29,7 @@ aside {
     width: 18vw;
     height: 50vh;
     border-radius: 10px;
-    background-color: aqua;
+    background-color: rgb(197, 245, 183);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -54,7 +54,7 @@ button {
     height: 45px;
     border-radius: 10px;
     border: none;
-    background-color: #5eec3e;
+    background-color: #dbde7e;
     font-weight: bold;
 }
 
@@ -82,11 +82,27 @@ article {
     font-size: 30px;
 }
 
-p:hover{
+p:hover {
     scale: 1.1;
 }
-.clearCartBtn{
+
+.clearCartBtn {
     background-color: rgb(252, 2, 2);
     color: #ffffff;
     font-weight: bold;
+}
+
+.decrementBtn,
+.incrementBtn {
+    font-size: 35px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+}
+
+.decrementBtn {
+    background-color: #cd94e9;
+
 }
