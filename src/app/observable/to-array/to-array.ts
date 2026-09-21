@@ -74,7 +74,7 @@ export class ToArray implements OnInit, AfterViewInit {
   }
 
 
-  @ViewChild('myInput') myInput!: ElementRef;
+  @ViewChild('myInput') myInput !: ElementRef;
 
   ngAfterViewInit(): void {
 

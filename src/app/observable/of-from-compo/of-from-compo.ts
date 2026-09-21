@@ -29,11 +29,9 @@ export class OfFromCompo implements OnInit {
     ob2.subscribe((emit) => {
       // console.log(emit);
       this.ofmsg = Object.keys(emit)
-      this.ofobject.set(emit)
       console.log("######################");
-
+      this.ofobject.set(emit)
       console.log(this.ofobject());
-      console.log("");
       console.log(this.ofmsg);
 
     });
