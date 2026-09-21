@@ -20,7 +20,7 @@ export class OfFromCompo implements OnInit {
 
     let ob1 = of("virat", "msd", "rohit", "raina", "yuvraj", "sehvag")
     ob1.subscribe((data) => {
-      console.log(data);
+      // console.log(data)
       this.updateOnUI("of data : " + data, "parent3")
     })
 
@@ -30,7 +30,11 @@ export class OfFromCompo implements OnInit {
       // console.log(emit);
       this.ofmsg = Object.keys(emit)
       this.ofobject.set(emit)
-      // console.log(this.ofobject());
+      console.log("######################");
+
+      console.log(this.ofobject());
+      console.log("");
+      console.log(this.ofmsg);
 
     });
 
